@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palace Café & Bowling Nitra</title>
+    <!-- Added: Favicon (logo next to title) -->
+    <link rel="icon" type="image/jpeg" href="logo.jpg">
+    <!-- Added: Meta Description -->
+    <meta name="description" content="Palace Café & Bowling Nitra - Vaše centrum zábavy v OC MAX. Bowling, biliard, šípky, stolný futbal, kaviareň. Ideálne pre rodiny, priateľov a firemné akcie.">
+    <!-- Added: Meta Keywords -->
+    <meta name="keywords" content="bowling Nitra, biliard Nitra, šípky Nitra, stolný futbal Nitra, Palace Café, zábava Nitra, teambuilding Nitra, OC MAX Nitra, kaviareň Nitra, rezervácia bowling">
+    <!-- Added: Meta Author -->
+    <meta name="author" content="Maxim Mlynek">
+    <!-- Open Graph Meta Tags for Social Media Sharing -->
+    <meta property="og:title" content="Palace Café & Bowling Nitra - Zábava v Srdci Nitry">
+    <meta property="og:description" content="Príďte si užiť špičkový bowling, biliard, šípky a stolný futbal s priateľmi a rodinou v Palace Café & Bowling Nitra.">
+    <meta property="og:image" content="bowling-hero.jpg"> <!-- Use a good quality image for social sharing -->
+    <meta property="og:url" content="YOUR_WEBSITE_URL_HERE"> <!-- Replace with the actual URL when published -->
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f2f5; /* Light grey background */
+        }
+        .hero-section {
+            background-image: url('bowling-hero.jpg');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        }
+        .overlay {
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        .section-title {
+            position: relative;
+            display: inline-block;
+            padding-bottom: 8px;
+            margin-bottom: 24px;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 0;
+            width: 60px;
+            height: 4px;
+            background-color: #f97316; /* Orange accent */
+            border-radius: 2px;
+        }
+        /* Custom scroll-behavior for smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+        /* Keyframe animations for fade-in effect */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fadeIn 1s ease-out forwards;
+        }
+        .animate-fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-400 { animation-delay: 0.4s; }
+        .delay-600 { animation-delay: 0.6s; }
+        .delay-800 { animation-delay: 0.8s; }
+        .delay-1000 { animation-delay: 1s; }
+
+        /* Enhanced shadow for cards and sections */
+        .card-shadow {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .card-shadow:hover {
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        /* Header Navigation Hover Effect */
+        .nav-link-hover:hover {
+            text-shadow: 0 0 8px rgba(249, 115, 22, 0.7); /* Orange glow */
+            border-bottom: 2px solid #f97316; /* Orange underline */
+            padding-bottom: 2px; /* Adjust padding to make space for underline */
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <!-- Header & Navigation -->
+    <header class="bg-gray-900 text-white shadow-lg sticky top-0 z-50">
+        <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <!-- Added: Logo -->
+                <img src="logo.jpg" alt="Palace Logo" class="h-10 w-auto rounded-md shadow-md">
+                <a href="#" class="text-2xl font-bold text-orange-500">Palace Café & Bowling</a>
+            </div>
+            <ul class="hidden md:flex space-x-6">
+                <!-- Updated: Added nav-link-hover class for enhanced hover effects -->
+                <li><a href="#activities" class="hover:text-orange-400 transition duration-300 nav-link-hover">Aktivity</a></li>
+                <li><a href="#gallery" class="hover:text-orange-400 transition duration-300 nav-link-hover">Galéria</a></li>
+                <li><a href="#events" class="hover:text-orange-400 transition duration-300 nav-link-hover">Udalosti</a></li>
+                <li><a href="#about" class="hover:text-orange-400 transition duration-300 nav-link-hover">O nás</a></li>
+                <li><a href="#contact" class="hover:text-orange-400 transition duration-300 nav-link-hover">Kontakt</a></li>
+            </ul>
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </nav>
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="hidden md:hidden fixed inset-0 bg-gray-900 bg-opacity-95 z-40 flex flex-col items-center justify-center space-y-8">
+            <button id="close-mobile-menu" class="absolute top-4 right-4 text-white focus:outline-none">
+                <i class="fas fa-times text-3xl"></i>
+            </button>
+            <ul class="text-white text-3xl font-semibold space-y-6">
+                <li><a href="#activities" class="block py-2 hover:text-orange-400 transition duration-300" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Aktivity</a></li>
+                <li><a href="#gallery" class="block py-2 hover:text-orange-400 transition duration-300" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Galéria</a></li>
+                <li><a href="#events" class="block py-2 hover:text-orange-400 transition duration-300" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Udalosti</a></li>
+                <li><a href="#about" class="block py-2 hover:text-orange-400 transition duration-300" onclick="document.getElementById('mobile-menu').classList.add('hidden')">O nás</a></li>
+                <li><a href="#contact" class="block py-2 hover:text-orange-400 transition duration-300" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Kontakt</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section h-screen flex items-center justify-center text-center">
+        <div class="overlay absolute inset-0"></div>
+        <div class="relative z-10 p-8 max-w-4xl mx-auto">
+            <h1 class="text-5xl md:text-7xl font-extrabold leading-tight mb-6 animate-fade-in-up">
+                Zábava, Káva & Bowling v Srdci Nitry
+            </h1>
+            <p class="text-xl md:text-2xl mb-10 opacity-90 animate-fade-in-up delay-200">
+                Príďte si užiť špičkový bowling, biliard, šípky a stolný futbal s priateľmi a rodinou.
+            </p>
+            <a href="#events" class="bg-orange-600 hover:bg-orange-700 text-white font-bold py-4 px-8 rounded-full text-lg md:text-xl shadow-lg transform hover:scale-105 transition duration-300 ease-in-out inline-block animate-fade-in-up delay-400">
+                Rezervujte si dráhu ešte dnes!
+            </a>
+        </div>
+    </section>
+
+    <!-- Activities Section -->
+    <section id="activities" class="py-16 bg-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold mb-12 section-title mx-auto">Naše Aktivity</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Activity Card 1: Bowling -->
+                <div class="bg-gray-100 p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300 transform hover:-translate-y-2 card-shadow">
+                    <div class="text-6xl text-orange-500 mb-4"><i class="fas fa-bowling-ball"></i></div>
+                    <h3 class="text-2xl font-semibold mb-3">Bowling</h3>
+                    <p class="text-gray-600">4 profesionálne dráhy QubicaAMF s automatickými stavačmi pre deti. Ideálne pre rodiny, priateľov aj turnaje.</p>
+                </div>
+                <!-- Activity Card 2: Biliard -->
+                <div class="bg-gray-100 p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300 transform hover:-translate-y-2 card-shadow">
+                    <!-- Updated: Billiard icon -->
+                    <div class="text-6xl text-orange-500 mb-4"><i class="fas fa-gamepad"></i></div>
+                    <h3 class="text-2xl font-semibold mb-3">Biliard</h3>
+                    <p class="text-gray-600">Tri profesionálne biliardové stoly (veľkosti 8 a 9) pre relaxačnú hru alebo napínavé súboje.</p>
+                </div>
+                <!-- Activity Card 3: Šípky -->
+                <div class="bg-gray-100 p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300 transform hover:-translate-y-2 card-shadow">
+                    <div class="text-6xl text-orange-500 mb-4"><i class="fas fa-bullseye"></i></div>
+                    <h3 class="text-2xl font-semibold mb-3">Elektronické Šípky</h3>
+                    <p class="text-gray-600">Tri moderné šípkarske automaty pre individuálnu zábavu aj organizované súťaže a turnaje.</p>
+                </div>
+                <!-- Activity Card 4: Stolný Futbal -->
+                <div class="bg-gray-100 p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300 transform hover:-translate-y-2 card-shadow">
+                    <!-- Updated: Icon for Table Football -->
+                    <div class="text-6xl text-orange-500 mb-4"><i class="fas fa-futbol"></i></div>
+                    <h3 class="text-2xl font-semibold mb-3">Stolný Futbal</h3>
+                    <p class="text-gray-600">Skvelá forma skupinovej zábavy s moderným stolným futbalom umiestneným v zadnej časti hracej plochy.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold mb-12 section-title mx-auto">Galéria</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Gallery Item 1 -->
+                <div class="overflow-hidden rounded-lg shadow-md hover:shadow-xl transition duration-300 card-shadow">
+                    <img src="bowling-fun.jpg" alt="Bowling Alley" class="w-full h-64 object-cover transform hover:scale-105 transition duration-500">
+                </div>
+                <!-- Gallery Item 2 -->
+                <div class="overflow-hidden rounded-lg shadow-md hover:shadow-xl transition duration-300 card-shadow">
+                    <img src="billiard-game.jpg" alt="Billiard Table" class="w-full h-64 object-cover transform hover:scale-105 transition duration-500">
+                </div>
+                <!-- Gallery Item 3 -->
+                <div class="overflow-hidden rounded-lg shadow-md hover:shadow-xl transition duration-300 card-shadow">
+                    <img src="darts-action.jpg" alt="Darts Game" class="w-full h-64 object-cover transform hover:scale-105 transition duration-500">
+                </div>
+                <!-- Gallery Item 4 -->
+                <div class="overflow-hidden rounded-lg shadow-md hover:shadow-xl transition duration-300 card-shadow">
+                    <img src="table-football-game.jpg" alt="Stolný Futbal" class="w-full h-64 object-cover transform hover:scale-105 transition duration-500">
+                </div>
+                <!-- Gallery Item 5 -->
+                <div class="overflow-hidden rounded-lg shadow-md hover:shadow-xl transition duration-300 card-shadow">
+                    <img src="cafe-area.jpg" alt="Cafe Seating" class="w-full h-64 object-cover transform hover:scale-105 transition duration-500">
+                </div>
+                <!-- Gallery Item 6 -->
+                <div class="overflow-hidden rounded-lg shadow-md hover:shadow-xl transition duration-300 card-shadow">
+                    <img src="group-fun.jpg" alt="Group Playing Bowling" class="w-full h-64 object-cover transform hover:scale-105 transition duration-500">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events & Reservations Section -->
+    <section id="events" class="py-16 bg-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold mb-12 section-title mx-auto">Udalosti & Rezervácie</h2>
+            <p class="text-lg text-gray-700 mb-8 max-w-2xl mx-auto">
+                Organizujeme pravidelné turnaje v bowlingu, biliarde a šípkach, ako aj firemné akcie a teambuildingy na mieru.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div class="text-left p-6 bg-gray-100 rounded-lg shadow-md card-shadow">
+                    <h3 class="text-3xl font-semibold text-orange-600 mb-4">Organizácia podujatí</h3>
+                    <p class="text-gray-700 mb-4">
+                        Hľadáte ideálne miesto pre firemný teambuilding, narodeninovú oslavu alebo súkromnú akciu? Palace Café & Bowling ponúka kompletné riešenia vrátane cateringu a prispôsobeného programu.
+                    </p>
+                    <ul class="list-disc list-inside text-gray-600 mb-6 space-y-2">
+                        <li>Firemné akcie a teambuildingy</li>
+                        <li>Narodeninové oslavy a súkromné podujatia</li>
+                        <li>Pravidelné turnaje v bowlingu, biliarde a šípkach</li>
+                        <li>Možnosť zabezpečenia cateringu</li>
+                    </ul>
+                    <a href="#contact" class="bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-6 rounded-full shadow-md transform hover:scale-105 transition duration-300 focus:ring-2 focus:ring-orange-400 focus:ring-opacity-75">
+                        Zistite viac o organizácii akcií
+                    </a>
+                </div>
+                <div class="text-left p-6 bg-gray-100 rounded-lg shadow-md card-shadow">
+                    <h3 class="text-3xl font-semibold text-orange-600 mb-4">Online rezervácia</h3>
+                    <!-- Updated: Form action and method, added ID for easier JS targeting -->
+                    <form id="reservation-form" action="https://formspree.io/f/xblybjyd" method="POST" class="space-y-4">
+                        <div>
+                            <!-- Updated: Label for date and time - removed format string -->
+                            <label for="date" class="block text-gray-700 text-sm font-bold mb-2">Dátum a čas:</label>
+                            <input type="datetime-local" id="date" name="date" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:ring-2 focus:ring-orange-500 transition duration-200" required step="60">
+                        </div>
+                        <div>
+                            <label for="name" class="block text-gray-700 text-sm font-bold mb-2">Meno:</label>
+                            <input type="text" id="name" name="name" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:ring-2 focus:ring-orange-500 transition duration-200" placeholder="Vaše meno" required>
+                        </div>
+                        <div>
+                            <label for="email" class="block text-gray-700 text-sm font-bold mb-2">Email:</label>
+                            <input type="email" id="email" name="email" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:ring-2 focus:ring-orange-500 transition duration-200" placeholder="Váš email" required>
+                        </div>
+                        <div>
+                            <label for="activity" class="block text-gray-700 text-sm font-bold mb-2">Typ aktivity:</label>
+                            <select id="activity" name="activity" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:ring-2 focus:ring-orange-500 transition duration-200" required>
+                                <option value="">Vyberte aktivitu</option>
+                                <option value="bowling">Bowling</option>
+                                <option value="billiard">Biliard</option>
+                                <option value="darts">Šípky</option>
+                                <!-- Updated: Option for Table Football -->
+                                <option value="table-football">Stolný Futbal</option>
+                                <option value="event">Firemná/Súkromná akcia</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="bg-orange-600 hover:bg-orange-700 text-white font-bold py-3 px-6 rounded-full shadow-md transform hover:scale-105 transition duration-300 w-full focus:ring-2 focus:ring-orange-400 focus:ring-opacity-75">
+                            Odoslať rezerváciu
+                        </button>
+                    </form>
+                    <!-- Added: Thank you message container for reservation form -->
+                    <div id="reservation-success-message" class="mt-4 p-3 bg-green-100 text-green-800 rounded-md hidden">
+                        Ďakujeme! Vaša rezervácia bola úspešne odoslaná. Čoskoro vás budeme kontaktovať.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold mb-12 section-title mx-auto">O nás</h2>
+            <div class="max-w-3xl mx-auto text-lg text-gray-700 leading-relaxed">
+                <p class="mb-6">
+                    Palace Café & Bowling je popredné zábavné centrum v Nitre, ktoré sa nachádza na 1. poschodí OC MAX. Sme hrdí na to, že už roky prinášame radosť a nezabudnuteľné zážitky pre všetkých – od rodín s deťmi, cez partie priateľov, až po firemných klientov hľadajúcich ideálne miesto pre teambuilding.
+                </p>
+                <p class="mb-6">
+                    Naše 4 profesionálne bowlingové dráhy QubicaAMF sú vybavené automatickými stavačmi pre najmenších hráčov, čím zabezpečujeme zábavu pre všetky vekové kategórie. Okrem bowlingu si u nás môžete užiť aj biliard, elektronické šípky, stolný futbal a jedinečnú laserovú strelnicu.
+                </p>
+                <p>
+                    V našej kaviarni si môžete oddýchnuť pri šálke kávy alebo osviežujúcom nápoji. Pravidelne organizujeme turnaje a sme ideálnym miestom pre vaše súkromné či firemné podujatia. Príďte a zažite deň plný zábavy!
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-gray-900 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold mb-12 section-title mx-auto text-white">Kontaktujte nás</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left max-w-4xl mx-auto">
+                <!-- Contact Details Column -->
+                <div>
+                    <div class="bg-gray-800 p-6 rounded-lg shadow-md flex items-start space-x-4 mb-8 card-shadow">
+                        <div class="text-orange-500 text-3xl"><i class="fas fa-map-marker-alt"></i></div>
+                        <div>
+                            <h3 class="text-xl font-semibold mb-2">Adresa</h3>
+                            <p class="text-gray-300">OC MAX Nitra, 1. poschodie</p>
+                            <p class="text-gray-300">Chrenovská 1661/30</p>
+                            <p class="text-gray-300">949 01 Nitra</p>
+                        </div>
+                    </div>
+                    <div class="bg-gray-800 p-6 rounded-lg shadow-md flex items-start space-x-4 mb-8 card-shadow">
+                        <div class="text-orange-500 text-3xl"><i class="fas fa-phone-alt"></i></div>
+                        <div>
+                            <h3 class="text-xl font-semibold mb-2">Telefón</h3>
+                            <!-- Updated: Removed email addresses -->
+                            <p class="text-gray-300">Telefón: <a href="tel:+421911928128" class="hover:underline">+421 911 928 128</a></p>
+                        </div>
+                    </div>
+                    <div class="bg-gray-800 p-6 rounded-lg shadow-md flex items-start space-x-4 card-shadow">
+                        <div class="text-orange-500 text-3xl"><i class="fas fa-clock"></i></div>
+                        <div>
+                            <h3 class="text-xl font-semibold mb-2">Otváracie Hodiny</h3>
+                            <p class="text-gray-300">Pondelok - Nedeľa: 09:00 - 21:00</p>
+                            <p class="text-gray-300 text-sm mt-2">
+                                (Pre aktuálne otváracie hodiny počas sviatkov a špeciálnych udalostí prosím overte telefonicky.)
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Added: Social Media Links in Contact Section -->
+                    <div class="bg-gray-800 p-6 rounded-lg shadow-md flex items-start space-x-4 mt-8 card-shadow">
+                        <div class="text-orange-500 text-3xl"><i class="fas fa-share-alt"></i></div>
+                        <div>
+                            <h3 class="text-xl font-semibold mb-2">Sledujte nás</h3>
+                            <div class="flex space-x-4 text-gray-300">
+                                <a href="https://www.facebook.com/PalaceCafeBowlingMax/?locale=sk_SK" target="_blank" class="hover:text-white transition duration-300"><i class="fab fa-facebook-f text-2xl"></i> Facebook</a>
+                                <a href="https://www.instagram.com/palacecafebowlingmax/" target="_blank" class="hover:text-white transition duration-300"><i class="fab fa-instagram text-2xl"></i> Instagram</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form Column -->
+                <div class="bg-gray-800 p-6 rounded-lg shadow-md card-shadow">
+                    <h3 class="text-3xl font-semibold text-orange-600 mb-4">Napíšte nám správu</h3>
+                    <!-- Updated: Form action and method, added ID for easier JS targeting -->
+                    <form id="contact-form" action="https://formspree.io/f/mvgryorp" method="POST" class="space-y-4">
+                        <div>
+                            <label for="contact-name" class="block text-gray-300 text-sm font-bold mb-2">Meno:</label>
+                            <input type="text" id="contact-name" name="name" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:ring-2 focus:ring-orange-500 transition duration-200" placeholder="Vaše meno" required>
+                        </div>
+                        <div>
+                            <label for="contact-email" class="block text-gray-300 text-sm font-bold mb-2">Email:</label>
+                            <input type="email" id="contact-email" name="email" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:ring-2 focus:ring-orange-500 transition duration-200" placeholder="Váš email" required>
+                        </div>
+                        <div>
+                            <label for="message" class="block text-gray-300 text-sm font-bold mb-2">Správa:</label>
+                            <textarea id="message" name="message" rows="5" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:ring-2 focus:ring-orange-500 transition duration-200" placeholder="Vaša správa..." required></textarea>
+                        </div>
+                        <button type="submit" class="bg-orange-600 hover:bg-orange-700 text-white font-bold py-3 px-6 rounded-full shadow-md transform hover:scale-105 transition duration-300 w-full focus:ring-2 focus:ring-orange-400 focus:ring-opacity-75">
+                            Odoslať správu
+                        </button>
+                    </form>
+                    <!-- Added: Thank you message container for contact form -->
+                    <div id="contact-success-message" class="mt-4 p-3 bg-green-100 text-green-800 rounded-md hidden">
+                        Ďakujeme! Vaša správa bola úspešne odoslaná. Čoskoro vás budeme kontaktovať.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-gray-400 py-6 text-center">
+        <div class="container mx-auto px-4">
+            <p>&copy; 2025 Palace Café & Bowling Nitra. Všetky práva vyhradené.</p>
+            <p> Webdesign by <strong>Maxim Mlynek</strong></p>
+            <div class="mt-4 flex justify-center space-x-6">
+                <!-- Updated: Footer social media links -->
+                <a href="https://www.facebook.com/PalaceCafeBowlingMax/?locale=sk_SK" target="_blank" class="hover:text-white transition duration-300"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/palacecafebowlingmax/" target="_blank" class="hover:text-white transition duration-300"><i class="fab fa-instagram"></i></a>
+               
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const closeMobileMenuButton = document.getElementById('close-mobile-menu');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.remove('hidden');
+        });
+
+        closeMobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+        });
+
+        // Close mobile menu when a link is clicked (handled by inline onclick)
+
+        // Formspree Integration for Reservation Form
+        const reservationForm = document.getElementById('reservation-form');
+        const reservationSuccessMessage = document.getElementById('reservation-success-message');
+
+        reservationForm.addEventListener('submit', async (e) => {
+            e.preventDefault(); // Prevent default form submission
+
+            const formData = new FormData(reservationForm);
+            try {
+                const response = await fetch(reservationForm.action, {
+                    method: reservationForm.method,
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json' // Important for Formspree to return JSON
+                    }
+                });
+
+                if (response.ok) {
+                    reservationForm.reset(); // Clear the form fields
+                    reservationForm.style.display = 'none'; // Hide the form
+                    reservationSuccessMessage.classList.remove('hidden'); // Show success message
+                } else {
+                    // Handle errors, e.g., display an error message
+                    console.error('Reservation form submission failed:', response.statusText);
+                    alert('Nastala chyba pri odosielaní rezervácie. Skúste to prosím neskôr.'); // Fallback alert
+                }
+            } catch (error) {
+                console.error('Reservation form submission error:', error);
+                alert('Nastala chyba pri odosielaní rezervácie. Skúste to prosím neskôr.'); // Fallback alert
+            }
+        });
+
+        // Formspree Integration for Contact Form
+        const contactForm = document.getElementById('contact-form');
+        const contactSuccessMessage = document.getElementById('contact-success-message');
+
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault(); // Prevent default form submission
+
+            const formData = new FormData(contactForm);
+            try {
+                const response = await fetch(contactForm.action, {
+                    method: contactForm.method,
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json' // Important for Formspree to return JSON
+                    }
+                });
+
+                if (response.ok) {
+                    contactForm.reset(); // Clear the form fields
+                    contactForm.style.display = 'none'; // Hide the form
+                    contactSuccessMessage.classList.remove('hidden'); // Show success message
+                } else {
+                    // Handle errors, e.g., display an error message
+                    console.error('Contact form submission failed:', response.statusText);
+                    alert('Nastala chyba pri odosielaní správy. Skúste to prosím neskôr.'); // Fallback alert
+                }
+            } catch (error) {
+                console.error('Contact form submission error:', error);
+                alert('Nastala chyba pri odosielaní správy. Skúste to prosím neskôr.'); // Fallback alert
+            }
+        });
+    </script>
+</body>
+</html>
